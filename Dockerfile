@@ -10,5 +10,4 @@ RUN apt-get update && \
 
 # add in the assets.
 COPY ["./usrlocalbin","/usr/local/bin/"]
-RUN chown -R root:root /usr/local/bin && chmod -R 0555 /usr/local/bin
-
+RUN chown root:root /usr/local/bin/* && chmod -R 0555 /usr/local/bin/*

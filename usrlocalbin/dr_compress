@@ -32,4 +32,3 @@ fi
 
 tar cf - -C "$SOURCEFOLDER" . | 7za a -si "${PASSCMD}" "$ARCHIVEPATH"  >/dev/null 2>&1
 if [ $? -ne 0 ]; then die "Failed to create archive." ; fi
-

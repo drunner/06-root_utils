@@ -3,11 +3,9 @@ set -o nounset
 
 # die MESSAGE 
 function die {
-   if [ -n "$1" ]; then
-      echo "$1" <&2
-   else
-      echo "Unexpected error. Exiting."<&2
-   fi
+   [ -n "$1" ] || { echo "Unexpected error. Exiting."<&2 ; exit 1 ; }
+   
+   echo "$1" <&2
    exit 1
 }
 
