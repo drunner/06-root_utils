@@ -1,10 +1,10 @@
-# dr-support, a container to help Docker Runner do its thing.
+# drunner_utils, a container to help dRunner do its thing.
 
 FROM debian
 MAINTAINER j842
 
 RUN apt-get update && \
-    apt-get install -y p7zip-full gnupg wget && \
+    apt-get install -y p7zip-full gnupg wget curl openssl nano git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

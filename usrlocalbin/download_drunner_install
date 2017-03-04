@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# die MESSAGE
+function die {
+   [ -n "$1" ] || { echo "Unexpected error. Exiting."<&2 ; exit 1 ; }
+
+   echo "$1" <&2
+   exit 1
+}
+
+fname="drunner-install"
+target="/dtemp/${fname}"
+
+rm -f "${target}"
+[ ! -f ${target} ] || die "Could not remove old drunner executable."
+
+wget -nv "https://drunner.s3.amazonaws.com/lin/${fname}"
+chmod 0755 "${fname}"
+cp "${fname}" "${target}"
